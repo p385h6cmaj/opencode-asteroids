@@ -231,13 +231,42 @@ const SKINS = [
   {
     name: 'Clásico',
     primary: '#ffffff', secondary: '#ffffff', glow: null,
-    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible) {
+    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible, redShipMode) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle);
 
       // Parpadeo durante invencibilidad
       if (invincible > 0 && Math.floor(invincible * 8) % 2 === 0) {
+        ctx.restore();
+        return;
+      }
+
+      // Modo nave roja (doble puntos, tamaño 2x)
+      if (redShipMode) {
+        ctx.scale(2, 2);
+        ctx.strokeStyle = '#ff2200';
+        ctx.lineWidth   = 1.5;
+        ctx.lineJoin    = 'round';
+        ctx.beginPath();
+        ctx.moveTo( 20,  0);
+        ctx.lineTo(-12, -9);
+        ctx.lineTo( -7,  0);
+        ctx.lineTo(-12,  9);
+        ctx.closePath();
+        ctx.stroke();
+
+        if (thrusting && Math.random() > 0.35) {
+          const len = rand(6, 14);
+          ctx.beginPath();
+          ctx.moveTo(-8, -4);
+          ctx.lineTo(-8 - len, 0);
+          ctx.lineTo(-8,  4);
+          ctx.strokeStyle = 'rgba(255, 100, 0, 0.9)';
+          ctx.lineWidth   = 1.5;
+          ctx.stroke();
+        }
+
         ctx.restore();
         return;
       }
@@ -286,12 +315,41 @@ const SKINS = [
   {
     name: 'Delta',
     primary: '#00d4ff', secondary: '#0088aa', glow: '#00d4ff',
-    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible) {
+    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible, redShipMode) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle);
 
       if (invincible > 0 && Math.floor(invincible * 8) % 2 === 0) {
+        ctx.restore();
+        return;
+      }
+
+      // Modo nave roja
+      if (redShipMode) {
+        ctx.scale(2, 2);
+        ctx.strokeStyle = '#ff2200';
+        ctx.lineWidth   = 1.5;
+        ctx.lineJoin    = 'round';
+        ctx.beginPath();
+        ctx.moveTo( 20,  0);
+        ctx.lineTo(-12, -9);
+        ctx.lineTo( -7,  0);
+        ctx.lineTo(-12,  9);
+        ctx.closePath();
+        ctx.stroke();
+
+        if (thrusting && Math.random() > 0.35) {
+          const len = rand(6, 14);
+          ctx.beginPath();
+          ctx.moveTo(-8, -4);
+          ctx.lineTo(-8 - len, 0);
+          ctx.lineTo(-8,  4);
+          ctx.strokeStyle = 'rgba(255, 100, 0, 0.9)';
+          ctx.lineWidth   = 1.5;
+          ctx.stroke();
+        }
+
         ctx.restore();
         return;
       }
@@ -359,12 +417,41 @@ const SKINS = [
   {
     name: 'Ace',
     primary: '#ff4422', secondary: '#ff8800', glow: '#ff4422',
-    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible) {
+    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible, redShipMode) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle);
 
       if (invincible > 0 && Math.floor(invincible * 8) % 2 === 0) {
+        ctx.restore();
+        return;
+      }
+
+      // Modo nave roja
+      if (redShipMode) {
+        ctx.scale(2, 2);
+        ctx.strokeStyle = '#ff2200';
+        ctx.lineWidth   = 1.5;
+        ctx.lineJoin    = 'round';
+        ctx.beginPath();
+        ctx.moveTo( 20,  0);
+        ctx.lineTo(-12, -9);
+        ctx.lineTo( -7,  0);
+        ctx.lineTo(-12,  9);
+        ctx.closePath();
+        ctx.stroke();
+
+        if (thrusting && Math.random() > 0.35) {
+          const len = rand(6, 14);
+          ctx.beginPath();
+          ctx.moveTo(-8, -4);
+          ctx.lineTo(-8 - len, 0);
+          ctx.lineTo(-8,  4);
+          ctx.strokeStyle = 'rgba(255, 100, 0, 0.9)';
+          ctx.lineWidth   = 1.5;
+          ctx.stroke();
+        }
+
         ctx.restore();
         return;
       }
@@ -436,12 +523,41 @@ const SKINS = [
   {
     name: 'Fénix',
     primary: '#ffcc00', secondary: '#aa8800', glow: '#ffcc00',
-    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible) {
+    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible, redShipMode) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle);
 
       if (invincible > 0 && Math.floor(invincible * 8) % 2 === 0) {
+        ctx.restore();
+        return;
+      }
+
+      // Modo nave roja
+      if (redShipMode) {
+        ctx.scale(2, 2);
+        ctx.strokeStyle = '#ff2200';
+        ctx.lineWidth   = 1.5;
+        ctx.lineJoin    = 'round';
+        ctx.beginPath();
+        ctx.moveTo( 20,  0);
+        ctx.lineTo(-12, -9);
+        ctx.lineTo( -7,  0);
+        ctx.lineTo(-12,  9);
+        ctx.closePath();
+        ctx.stroke();
+
+        if (thrusting && Math.random() > 0.35) {
+          const len = rand(6, 14);
+          ctx.beginPath();
+          ctx.moveTo(-8, -4);
+          ctx.lineTo(-8 - len, 0);
+          ctx.lineTo(-8,  4);
+          ctx.strokeStyle = 'rgba(255, 100, 0, 0.9)';
+          ctx.lineWidth   = 1.5;
+          ctx.stroke();
+        }
+
         ctx.restore();
         return;
       }
@@ -511,12 +627,41 @@ const SKINS = [
   {
     name: 'Fantasma',
     primary: '#00ff88', secondary: '#00aa55', glow: '#00ff88',
-    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible) {
+    draw(ctx, x, y, angle, radius, thrusting, speedBoost, invincible, redShipMode) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle);
 
       if (invincible > 0 && Math.floor(invincible * 8) % 2 === 0) {
+        ctx.restore();
+        return;
+      }
+
+      // Modo nave roja
+      if (redShipMode) {
+        ctx.scale(2, 2);
+        ctx.strokeStyle = '#ff2200';
+        ctx.lineWidth   = 1.5;
+        ctx.lineJoin    = 'round';
+        ctx.beginPath();
+        ctx.moveTo( 20,  0);
+        ctx.lineTo(-12, -9);
+        ctx.lineTo( -7,  0);
+        ctx.lineTo(-12,  9);
+        ctx.closePath();
+        ctx.stroke();
+
+        if (thrusting && Math.random() > 0.35) {
+          const len = rand(6, 14);
+          ctx.beginPath();
+          ctx.moveTo(-8, -4);
+          ctx.lineTo(-8 - len, 0);
+          ctx.lineTo(-8,  4);
+          ctx.strokeStyle = 'rgba(255, 100, 0, 0.9)';
+          ctx.lineWidth   = 1.5;
+          ctx.stroke();
+        }
+
         ctx.restore();
         return;
       }
@@ -613,6 +758,7 @@ class Ship {
     this.speedBoost    = 0;   // segundos restantes de boost
     this.shieldActive  = 0;   // segundos restantes de escudo
     this.tripleShot    = 0;   // segundos restantes de triple disparo
+    this.redShipMode   = false;  // modo nave roja (doble puntos, tamaño 2x)
   }
 
   get skin() { return SKINS[this.skinIndex]; }
@@ -668,7 +814,8 @@ class Ship {
   draw() {
     if (this.dead) return;
     this.skin.draw(ctx, this.x, this.y, this.angle, this.radius,
-                   this.thrusting, this.speedBoost, this.invincible);
+                   this.thrusting, this.speedBoost, this.invincible,
+                   this.redShipMode);
 
     // Escudo protector
     if (this.shieldActive > 0) {
@@ -871,12 +1018,21 @@ function trySpawnPowerUp(x, y) {
 }
 
 function killShip() {
+  // Si queda exactamente 1 vida, activar modo nave roja (sin morir)
+  if (lives === 2) {
+    ship.redShipMode = true;
+    return;
+  }
   explode(ship.x, ship.y, 14);
   ship.dead = true;
   lives--;
   if (lives <= 0) {
     state = 'gameover';
   } else {
+    // Si estaba en modo rojo, desactivarlo antes de respawnear
+    if (ship.redShipMode) {
+      ship.redShipMode = false;
+    }
     state     = 'dead';
     deadTimer = 2;
   }
@@ -917,7 +1073,14 @@ function update(dt) {
     powerUps = powerUps.filter(p => !p.dead);
     shootingStars.forEach(s => s.update(dt));
     shootingStars = shootingStars.filter(s => !s.dead);
-    if (deadTimer <= 0) { state = 'playing'; ship.reset(); }
+    if (deadTimer <= 0) {
+      state = 'playing';
+      ship.reset();
+      // Reactivar modo nave roja si el jugador tiene 1 vida
+      if (lives === 1 && !ship.redShipMode) {
+        ship.redShipMode = true;
+      }
+    }
     return;
   }
 
@@ -951,7 +1114,8 @@ function update(dt) {
       if (!a.dead && !b.dead && dist(b, a) < a.radius) {
         b.dead = true;
         a.dead = true;
-        score += POINTS[a.size];
+        const mult = ship.redShipMode ? 2 : 1;
+        score += POINTS[a.size] * mult;
         explode(a.x, a.y, a.size * 5);
         trySpawnPowerUp(a.x, a.y);
         newAsteroids.push(...a.split());
@@ -1099,6 +1263,18 @@ function drawHUD() {
     const yText = ship.speedBoost > 0 && ship.tripleShot > 0 ? 96 :
                   (ship.speedBoost > 0 || ship.tripleShot > 0) ? 80 : 48;
     ctx.fillText(`SHIELD — ${sec}s`, W / 2, yText);
+  }
+
+  // Indicador de modo nave roja (doble puntos)
+  if (ship.redShipMode) {
+    const pulse = 1 + 0.15 * Math.sin(Date.now() / 180);
+    ctx.fillStyle = `rgba(255, 34, 0, ${0.7 + 0.3 * Math.sin(Date.now() / 180)})`;
+    ctx.font = 'bold 14px monospace';
+    ctx.fillText(`★ DOBLE PUNTO ★`, W / 2, ship.shieldActive > 0 || ship.speedBoost > 0 || ship.tripleShot > 0 ? 96 : 32);
+    // Barra pulsante roja
+    const barW = 80 * pulse;
+    ctx.fillStyle = 'rgba(255, 34, 0, 0.5)';
+    ctx.fillRect(W / 2 - barW / 2, (ship.shieldActive > 0 || ship.speedBoost > 0 || ship.tripleShot > 0 ? 80 : 16), barW, 3);
   }
 }
 
